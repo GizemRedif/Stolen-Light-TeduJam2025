@@ -30,7 +30,7 @@ public class ButtonLightControl : MonoBehaviour
         else if(gameObject.CompareTag("GreenButton"))
         {
             doorController.OpenDoor();
-             StartCoroutine(CloseDoorAfterTime(5f));
+            StartCoroutine(CloseDoorAfterTime(5f));
         }
 
     }

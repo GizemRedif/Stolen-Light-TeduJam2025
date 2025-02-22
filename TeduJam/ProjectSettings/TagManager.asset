@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - trap
+  - BlueButton
+  - RedButton
+  - GreenButton
   layers:
   - Default
   - TransparentFX
