@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     private float X_pos = 1;
     bool isrun = false;
     bool Alive = true;
+    private Vector2 lastMoveDir;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -34,32 +35,31 @@ public class Player : MonoBehaviour
         Vector2 moveDirection = new Vector2(moveX, moveY).normalized;
         moveVelocity = moveDirection * speed;
 
-        // **Animasyonları Kontrol Et**
         if (moveX != 0) 
         {
             anim.SetBool("RightWalk", true);
+            anim.SetBool("UpWalk", false);
+            anim.SetBool("DownWalk", false);
             transform.localScale = new Vector3(moveX > 0 ? 1 : -1, 1, 1); // Sağ/sol dönüş
         }
-        else 
-        {
-            anim.SetBool("RightWalk", false);
-        }
-
-        if (moveY > 0) 
+        else if (moveY > 0) 
         {
             anim.SetBool("UpWalk", true);
+            anim.SetBool("RightWalk", false);
+            anim.SetBool("DownWalk", false);
         }
-        else 
-        {
-            anim.SetBool("UpWalk", false);
-        }
-
-        if (moveY < 0) 
+        else if (moveY < 0) 
         {
             anim.SetBool("DownWalk", true);
+            anim.SetBool("RightWalk", false);
+            anim.SetBool("UpWalk", false);
         }
         else 
         {
+            anim.SetFloat("LastMoveX", lastMoveDir.x);
+            anim.SetFloat("LastMoveY", lastMoveDir.y);
+            anim.SetBool("RightWalk", false);
+            anim.SetBool("UpWalk", false);
             anim.SetBool("DownWalk", false);
         }
     }

@@ -80,19 +80,26 @@ public class HandTourch : MonoBehaviour
             if(!hitObjects1.Contains(obj)){
                 hitObjects1.Add(obj);
             }
-            spike1 = obj.GetComponent<TrapDetection>();
-            color = obj.GetComponent<ChangeColor>();
-            lasercol = obj.GetComponent<laser>();
-            if(color != null){
-                color.changetoBlue();
-            }
-            if(spike1 != null){
-                Debug.Log("efe yanlış");
-                spike1.setLight(true);
-            }
-            if (lasercol != null)
-            {
-                lasercol.isLight(true);
+            RaycastHit2D ray = Physics2D.Raycast(transform.position, (obj.transform.position - transform.position).normalized, 10f, targetLayer);
+            if (ray.collider.gameObject == obj.gameObject)
+            {             
+                Debug.DrawLine(transform.position, obj.transform.position, Color.green);
+                spike1 = obj.GetComponent<TrapDetection>();
+                color = obj.GetComponent<ChangeColor>();
+                lasercol = obj.GetComponent<laser>();
+                if (color != null)
+                {
+                    color.changetoBlue();
+                }
+                if (spike1 != null)
+                {
+                    Debug.Log("efe yanlış");
+                    spike1.setLight(true);
+                }
+                if (lasercol != null)
+                {
+                    lasercol.isLight(true);
+                }
             }
         }
         for(int i= hitObjects1.Count -1 ;i>=0 ; i--){
