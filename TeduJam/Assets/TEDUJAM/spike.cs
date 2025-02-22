@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading;
 using UnityEngine;
 
@@ -11,11 +12,13 @@ public class spike : MonoBehaviour
     private float timer;
     private float timer2;
     private bool damaged  = false;
+    private Animator anim;
     private Collider2D col;
     private bool noLight = false;
 
     void Start()
     {
+        anim = GetComponent<Animator>();
         col = GetComponent<Collider2D>();   
     }
 
@@ -25,12 +28,12 @@ public class spike : MonoBehaviour
         Spike(noLight);
         if (noLight == false && col.enabled == true)
         {
-            Debug.Log("ýþýk yokken diken açýk");
+            Debug.Log("ï¿½ï¿½ï¿½k yokken diken aï¿½ï¿½k");
             timer2 += Time.deltaTime;
             if (isPlayer && script != null && damaged == false)
             {
                 damaged = true;
-                script.TakeDamage(damage);
+                
                 timer2 = 0;
             }
             if (damaged == true && timer2 >= 1f)
@@ -92,4 +95,5 @@ public class spike : MonoBehaviour
         
     }
     public void setSpike(bool noLight){this.noLight = noLight;}
+    public void takeDamage(float damage){script.TakeDamage(damage);}
 }
