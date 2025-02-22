@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -24,7 +25,7 @@ public class HandTourch : MonoBehaviour
     }
 
     // Update is called once per frame
- void Update()
+    void Update()
     {
         if (light1.pointLightOuterRadius != 0)
         {
@@ -80,20 +81,28 @@ public class HandTourch : MonoBehaviour
             if(!hitObjects1.Contains(obj)){
                 hitObjects1.Add(obj);
             }
-            spike1 = obj.GetComponent<TrapDetection>();
-            color = obj.GetComponent<ChangeColor>();
-            lasercol = obj.GetComponent<laser>();
-            if(color != null){
-                color.changetoBlue();
+            RaycastHit2D ray = Physics2D.Raycast(transform.position, (obj.transform.position - transform.position).normalized, 10f, targetLayer);
+            if (ray.collider.gameObject == obj.gameObject)
+            {             
+                Debug.DrawLine(transform.position, obj.transform.position, Color.green);
+                spike1 = obj.GetComponent<TrapDetection>();
+                color = obj.GetComponent<ChangeColor>();
+                lasercol = obj.GetComponent<laser>();
+                if (color != null)
+                {
+                    color.changetoBlue();
+                }
+                if (spike1 != null)
+                {
+                    Debug.Log("efe yanlış");
+                    spike1.setLight(true);
+                }
+                if (lasercol != null)
+                {
+                    lasercol.isLight(true);
+                }
             }
-            if(spike1 != null){
-                Debug.Log("efe yanlış");
-                spike1.setLight(true);
-            }
-            if (lasercol != null)
-            {
-                lasercol.isLight(true);
-            }
+
         }
         for(int i= hitObjects1.Count -1 ;i>=0 ; i--){
             Collider2D obj = (Collider2D)hitObjects1[i];
