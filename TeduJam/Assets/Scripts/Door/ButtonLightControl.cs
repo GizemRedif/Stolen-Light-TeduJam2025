@@ -38,7 +38,7 @@ public class ButtonLightControl : MonoBehaviour
     }
     private void ButtonResponse() //Buton rengine göre kapının açıldığı durumlar
     {
-         if (gameObject.CompareTag("RedButton"))
+         if (gameObject.CompareTag("RedButton") && Input.GetKey(KeyCode.E))
         {
             doorController.OpenDoor(); 
         }

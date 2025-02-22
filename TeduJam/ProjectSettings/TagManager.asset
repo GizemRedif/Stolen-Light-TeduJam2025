@@ -5,11 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - trap
-HEAD
-  - BlueButton
-  - RedButton
-  - GreenButton
-
   layers:
   - Default
   - TransparentFX
@@ -17,7 +12,7 @@ HEAD
   - 
   - Water
   - UI
-  - Player
+  - 
   - 
   - 
   - 
@@ -44,12 +39,12 @@ HEAD
   - 
   - 
   m_SortingLayers:
-  - name: background
-    uniqueID: 440112441
+  - name: BackGround
+    uniqueID: 1606485025
+    locked: 0
+  - name: MidGround
+    uniqueID: 3934867997
     locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: traps
-    uniqueID: 1758124431
     locked: 0

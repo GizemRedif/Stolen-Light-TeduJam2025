@@ -5,14 +5,23 @@ using UnityEngine;
 public class DoorController : MonoBehaviour
 {
     public Animator door;
+    private bool situation;
 
     public void OpenDoor()
     {
-        door.SetTrigger("Open");
+        if(situation){
+            door.SetTrigger("Open");
+        }
+        
     }
 
     public void CloseDoor()
     {
-        door.SetTrigger("Close");
+        if(situation){
+            door.SetTrigger("Close");
+        }
+    }
+    public void DoorPos(bool situation){
+        this.situation = situation;
     }
 }
