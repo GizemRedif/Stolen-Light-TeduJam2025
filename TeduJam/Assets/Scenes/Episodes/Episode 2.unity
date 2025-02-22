@@ -395,14 +395,6 @@ PrefabInstance:
       value: side door open
       objectReference: {fileID: 0}
     - target: {fileID: 6823241671011364395, guid: 91b5b44ae7b7f5e4f8934381851012f0, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 5.6118784
-      objectReference: {fileID: 0}
-    - target: {fileID: 6823241671011364395, guid: 91b5b44ae7b7f5e4f8934381851012f0, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3.9100437
-      objectReference: {fileID: 0}
-    - target: {fileID: 6823241671011364395, guid: 91b5b44ae7b7f5e4f8934381851012f0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.5812
       objectReference: {fileID: 0}

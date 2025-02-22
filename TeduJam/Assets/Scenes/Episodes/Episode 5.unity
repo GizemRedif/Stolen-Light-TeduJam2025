@@ -523,6 +523,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: close door
       objectReference: {fileID: 0}
+    - target: {fileID: 8548558105614325946, guid: 1824658d206614342977702ab8706b6c, type: 3}
+      propertyPath: nextSceneName
+      value: Episode 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

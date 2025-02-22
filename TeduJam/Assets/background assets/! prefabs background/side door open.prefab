@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6823241671011364395}
   - component: {fileID: 8405378368082958608}
   - component: {fileID: 5656798255826461895}
+  - component: {fileID: 5559409184124543254}
   m_Layer: 0
   m_Name: side door open
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.6, y: -1.8, z: 0}
-  m_LocalScale: {x: 5.3650846, y: 3.8713305, z: 1}
+  m_LocalScale: {x: 5.6118784, y: 3.9100437, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -106,3 +107,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5559409184124543254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418287647564386108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 390d3e9e2e851194e852dc5adf7f060e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 5656798255826461895}
+  animationName: "a\xE7\u0131k kap\u0131"
+  nextSceneName: Episode 3
+  triggerDistance: 3

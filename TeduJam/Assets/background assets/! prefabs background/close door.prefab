@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3149909824171802201}
   - component: {fileID: 8788552285530453629}
   - component: {fileID: 8216814543948440164}
+  - component: {fileID: 8548558105614325946}
   m_Layer: 0
   m_Name: close door
   m_TagString: Untagged
@@ -233,3 +234,19 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &8548558105614325946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2540113114671237236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 390d3e9e2e851194e852dc5adf7f060e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 6507273367744555837}
+  animationName: front open door
+  nextSceneName: Episode 2
+  triggerDistance: 3

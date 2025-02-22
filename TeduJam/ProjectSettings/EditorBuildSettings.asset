@@ -8,4 +8,34 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Start UI/Start Screen.unity
+    guid: fe512866cae68604190ac4af3b3aa18e
+  - enabled: 1
+    path: Assets/Scenes/Start UI/Developers.unity
+    guid: 48dcbeda91ed70e42babfa74563737cb
+  - enabled: 1
+    path: Assets/Scenes/Start UI/Options.unity
+    guid: a51d913987f76bf4a93030b530fc913c
+  - enabled: 1
+    path: Assets/Scenes/Start UI/HowToPlay.unity
+    guid: b3d08f335475f4c4ea40782eeb93601e
+  - enabled: 1
+    path: Assets/Scenes/Story.unity
+    guid: d7ed23ff16c2afd4db434b0a93c95c1a
+  - enabled: 1
+    path: Assets/Scenes/Episodes/Episode 1.unity
+    guid: 5a544b1b2f5a8d44e88deaf94c9ac53a
+  - enabled: 1
+    path: Assets/Scenes/Episodes/Episode 2.unity
+    guid: eae5cc80c8663794085230ca7a50a305
+  - enabled: 1
+    path: Assets/Scenes/Episodes/Episode 3.unity
+    guid: 7c77f5793c48be14aa3264b20f45d0e5
+  - enabled: 1
+    path: Assets/Scenes/Episodes/Episode 4.unity
+    guid: 76885ec752d1cd44e95a0f366a76417c
+  - enabled: 1
+    path: Assets/Scenes/Episodes/Episode 5.unity
+    guid: 80e5b7ca7b3a7454280c9bd7afb39f3f
   m_configObjects: {}
