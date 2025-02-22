@@ -75,12 +75,14 @@ public class HandTourch : MonoBehaviour
         ArrayList newObjects = new ArrayList(currentObjects);
         ChangeColor color;
         TrapDetection spike1 ;
+        laser lasercol;
         foreach ( Collider2D  obj in newObjects){
             if(!hitObjects1.Contains(obj)){
                 hitObjects1.Add(obj);
             }
             spike1 = obj.GetComponent<TrapDetection>();
             color = obj.GetComponent<ChangeColor>();
+            lasercol = obj.GetComponent<laser>();
             if(color != null){
                 color.changetoBlue();
             }
@@ -88,18 +90,27 @@ public class HandTourch : MonoBehaviour
                 Debug.Log("efe yanlış");
                 spike1.setLight(true);
             }
+            if (lasercol != null)
+            {
+                lasercol.isLight(true);
+            }
         }
         for(int i= hitObjects1.Count -1 ;i>=0 ; i--){
             Collider2D obj = (Collider2D)hitObjects1[i];
             if(!newObjects.Contains(obj)){
                 color = obj.GetComponent<ChangeColor>();
                 spike1 = obj.GetComponent<TrapDetection>();
-                if(color!= null){
+                lasercol = obj.GetComponent<laser>();
+                if (color!= null){
                     color.ChangeRed();
                 }
                 if(spike1 != null){
                     spike1.setLight(false);
-            }
+                }
+                if (lasercol != null)
+                {
+                    lasercol.isLight(false);
+                }
                 hitObjects1.Remove(obj);
             }
         }
