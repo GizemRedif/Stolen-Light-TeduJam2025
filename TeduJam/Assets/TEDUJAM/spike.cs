@@ -20,6 +20,7 @@ public class spike : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         col = GetComponent<Collider2D>();   
+        anim.SetBool("isIdle",true);
     }
 
     // Update is called once per frame
@@ -33,7 +34,7 @@ public class spike : MonoBehaviour
             if (isPlayer && script != null && damaged == false)
             {
                 damaged = true;
-                
+                anim.Play("Spike");
                 timer2 = 0;
             }
             if (damaged == true && timer2 >= 1f)
@@ -70,28 +71,32 @@ public class spike : MonoBehaviour
             {
                 GetComponent<Collider2D>().enabled = false;
                 damaged = false;
-                
 
             }
             else if (0.5f<timer && timer < 1.5f)
             {
+                anim.SetBool("isIdle",false);
                 Debug.Log(GetComponent<Collider2D>().enabled);
                 GetComponent<Collider2D>().enabled = true;
                 if (isPlayer && script != null && damaged==false)
                 {
                     damaged = true;
-                    script.TakeDamage(damage);
+                    anim.Play("Spike");
                 }
             }
             else if(timer >= 1.5f)
             {
-                timer = 0;
+                GetComponent<Collider2D>().enabled = false;
+                if(timer > 2){
+                    timer = 0;
+                }
             }
         }
         else
         {
             noLight = false;
         }
+        
         
     }
     public void setSpike(bool noLight){this.noLight = noLight;}
