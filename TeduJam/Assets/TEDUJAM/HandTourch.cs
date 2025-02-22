@@ -26,8 +26,14 @@ public class HandTourch : MonoBehaviour
     // Update is called once per frame
  void Update()
     {
-        Area();
+        if (light1.pointLightOuterRadius != 0)
+        {
+            Area();
+        }
+
+        
         if(Input.GetMouseButton(0) && light1.pointLightOuterRadius<maxRadius && light1.intensity<maxRadius){
+            
             growthScale = Time.deltaTime * growthSpeed;
             brightnessCount = Time.deltaTime * brightnessSpeed;
             
@@ -42,6 +48,12 @@ public class HandTourch : MonoBehaviour
             if(light1.intensity> 0){
                 light1.intensity -= Time.deltaTime * reducebrightnessSpeed;
             }
+        }
+        if (light1.pointLightOuterRadius <= 0)
+        {
+            light1.intensity = 0;
+            light1.pointLightOuterRadius = 0;
+            
         }
 
     }
@@ -62,31 +74,31 @@ public class HandTourch : MonoBehaviour
         Collider2D[] currentObjects = Physics2D.OverlapCircleAll(transform.position, light1.pointLightOuterRadius, targetLayer);
         ArrayList newObjects = new ArrayList(currentObjects);
         ChangeColor color;
-        spike spike1 ;
+        TrapDetection spike1 ;
         foreach ( Collider2D  obj in newObjects){
             if(!hitObjects1.Contains(obj)){
                 hitObjects1.Add(obj);
             }
-            spike1 = obj.GetComponent<spike>();
+            spike1 = obj.GetComponent<TrapDetection>();
             color = obj.GetComponent<ChangeColor>();
             if(color != null){
                 color.changetoBlue();
             }
             if(spike1 != null){
                 Debug.Log("efe yanlış");
-                spike1.setSpike(true);
+                spike1.setLight(true);
             }
         }
         for(int i= hitObjects1.Count -1 ;i>=0 ; i--){
             Collider2D obj = (Collider2D)hitObjects1[i];
             if(!newObjects.Contains(obj)){
                 color = obj.GetComponent<ChangeColor>();
-                spike1 = obj.GetComponent<spike>();
+                spike1 = obj.GetComponent<TrapDetection>();
                 if(color!= null){
                     color.ChangeRed();
                 }
                 if(spike1 != null){
-                    spike1.setSpike(false);
+                    spike1.setLight(false);
             }
                 hitObjects1.Remove(obj);
             }

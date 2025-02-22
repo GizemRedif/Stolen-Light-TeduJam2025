@@ -25,6 +25,7 @@ public class spike : MonoBehaviour
         Spike(noLight);
         if (noLight == false && col.enabled == true)
         {
+            Debug.Log("ýþýk yokken diken açýk");
             timer2 += Time.deltaTime;
             if (isPlayer && script != null && damaged == false)
             {
@@ -60,23 +61,24 @@ public class spike : MonoBehaviour
         if (light)
         {
             Debug.Log("SA sa sa");
-            timer = Time.time;
-            Debug.Log(timer);
+            timer += Time.deltaTime;
+            
             if (timer <= 0.5f)
             {
                 GetComponent<Collider2D>().enabled = false;
                 damaged = false;
+                
 
             }
             else if (0.5f<timer && timer < 1.5f)
             {
+                Debug.Log(GetComponent<Collider2D>().enabled);
                 GetComponent<Collider2D>().enabled = true;
                 if (isPlayer && script != null && damaged==false)
                 {
                     damaged = true;
                     script.TakeDamage(damage);
                 }
-                
             }
             else if(timer >= 1.5f)
             {
