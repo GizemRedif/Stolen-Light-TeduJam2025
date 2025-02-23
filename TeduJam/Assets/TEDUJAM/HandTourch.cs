@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -24,7 +25,7 @@ public class HandTourch : MonoBehaviour
     }
 
     // Update is called once per frame
- void Update()
+    void Update()
     {
         if (light1.pointLightOuterRadius != 0)
         {
@@ -84,6 +85,7 @@ public class HandTourch : MonoBehaviour
             }
             RaycastHit2D ray = Physics2D.Raycast(transform.position, (obj.transform.position - transform.position).normalized, 10f, targetLayer);
             if (ray.collider.gameObject == obj.gameObject)
+
             {        
                 Debug.Log("----------------");     
                 Debug.DrawLine(transform.position, obj.transform.position, Color.green);
@@ -92,6 +94,7 @@ public class HandTourch : MonoBehaviour
                 lasercol = obj.GetComponent<laser>();
                 button = obj.GetComponent<ButtonLightControl>();
                 door = obj.GetComponent<DoorController>();
+
                 if (color != null)
                 {
                     color.changetoBlue();
@@ -99,6 +102,7 @@ public class HandTourch : MonoBehaviour
                 if (spike1 != null)
                 {
                     Debug.Log("efe yanlış");
+
                     spike1.setLight(true);
                 }
                 if (lasercol != null)
@@ -112,7 +116,9 @@ public class HandTourch : MonoBehaviour
                 if(door != null){
                     door.DoorPos(true);
                 }
+
             }
+
         }
         for(int i= hitObjects1.Count -1 ;i>=0 ; i--){
             Collider2D obj = (Collider2D)hitObjects1[i];
