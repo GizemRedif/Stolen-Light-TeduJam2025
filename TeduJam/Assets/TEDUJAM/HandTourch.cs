@@ -106,8 +106,6 @@ public class HandTourch : MonoBehaviour
                     }
                     if (spike1 != null)
                     {
-                        Debug.Log("efe yanlış");
-
                         spike1.setLight(true);
                     }
                     if (lasercol != null)
@@ -115,7 +113,7 @@ public class HandTourch : MonoBehaviour
                         lasercol.isLight(true);
                     }
                     if(button != null){
-                        Debug.Log("efe yanlış");
+                        Debug.Log("button tespit edildi");
                         button.ButtonAccess(true);
                     }
                     if(door != null){
@@ -144,7 +142,7 @@ public class HandTourch : MonoBehaviour
                     lasercol.isLight(false);
                 }
                 if(button != null){
-                    Debug.Log("efe yanlış");
+                    Debug.Log("button tespit edildi");
                     button.ButtonAccess(false);
                 }
                 if(door != null){

@@ -18,17 +18,21 @@ public class ButtonLightControl : MonoBehaviour
     void Update()
     {
         if(islight){
+            Debug.Log("Tuşa basıldı");
             ButtonResponse();
         }
         else{
+            Debug.Log("gfkjhgfdkhgfk");
             if(gameObject.CompareTag("BlueButton"))
             {
+                Debug.Log("gfkjhgfdkhgfk");
                 doorController.isopenDoor(true);
             }
         }
     }
     private void ButtonResponse() //Buton rengine göre kapının açıldığı durumlar
     {
+        
          if (gameObject.CompareTag("RedButton") )
         {
             if(Input.GetKeyDown(KeyCode.E)){
@@ -45,6 +49,7 @@ public class ButtonLightControl : MonoBehaviour
         }
         else if(gameObject.CompareTag("BlueButton"))
         {
+            
             doorController.isopenDoor(false);
         }
         else if(gameObject.CompareTag("GreenButton"))

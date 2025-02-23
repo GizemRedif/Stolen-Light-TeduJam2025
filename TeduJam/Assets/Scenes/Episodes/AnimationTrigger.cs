@@ -9,7 +9,7 @@ public class AnimationTrigger : MonoBehaviour
     public float triggerDistance = 3f; // Mesafe kontrolü (karakter ne kadar yakın olmalı)
 
     private Transform hero; // Hero karakterinin transformu
-    private bool doorlock = false;
+    private bool doorlock = true;
 
     void Start()
     {
