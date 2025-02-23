@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8788552285530453629}
   - component: {fileID: 8216814543948440164}
   - component: {fileID: 8548558105614325946}
+  - component: {fileID: 4023781148665940808}
   m_Layer: 0
   m_Name: close door
   m_TagString: Untagged
@@ -250,3 +251,16 @@ MonoBehaviour:
   animationName: front open door
   nextSceneName: Episode 2
   triggerDistance: 3
+--- !u!114 &4023781148665940808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2540113114671237236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb0848130e7416540ad4bfdd3c402371, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  door: {fileID: 0}

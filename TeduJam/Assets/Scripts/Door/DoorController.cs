@@ -4,12 +4,21 @@ using UnityEngine;
 
 public class DoorController : MonoBehaviour
 {
-    public Animator door;
+    Animator door;
     private bool situation;
-
+    void Start()
+    {
+        door = GetComponent<Animator>();
+    }
+    void Update()
+    {
+        OpenDoor();
+        CloseDoor();
+    }
     public void OpenDoor()
     {
         if(situation){
+            Debug.Log("Kapı açıldı");
             door.SetTrigger("Open");
         }
         

@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - trap
+  - RedButton
   layers:
   - Default
   - TransparentFX
@@ -12,7 +13,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 
@@ -42,9 +43,15 @@ TagManager:
   - name: BackGround
     uniqueID: 1606485025
     locked: 0
-  - name: MidGround
-    uniqueID: 3934867997
+  - name: Predefault
+    uniqueID: 3485022107
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: MidGround
+    uniqueID: 3934867997
+    locked: 0
+  - name: premid
+    uniqueID: 3178932165
     locked: 0

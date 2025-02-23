@@ -9,16 +9,9 @@ public class ButtonLightControl : MonoBehaviour
     public DoorController doorController;
     public string buttonType = "Button";
 
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.CompareTag(buttonType))
-        {
-            
-            ButtonResponse(); // Işık değdiğinde gerçekleşen olaylar
-        }
-    }
     public void ButtonAccess(bool access)
     {
+        Debug.Log("girdi");
         if(access){
             ButtonResponse();
         }
@@ -26,20 +19,11 @@ public class ButtonLightControl : MonoBehaviour
 
         }
     }
-    private void AntiButton(){
-        if (gameObject.CompareTag("RedButton"))
-        {
-            doorController.OpenDoor(); 
-        }
-        else if(gameObject.CompareTag("BlueButton"))
-        {
-            doorController.CloseDoor();
-        }
-    }
     private void ButtonResponse() //Buton rengine göre kapının açıldığı durumlar
     {
          if (gameObject.CompareTag("RedButton") && Input.GetKey(KeyCode.E))
         {
+            Debug.Log("Tuşa basıldı");
             doorController.OpenDoor(); 
         }
         else if(gameObject.CompareTag("BlueButton"))

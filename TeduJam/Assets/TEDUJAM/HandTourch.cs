@@ -76,17 +76,22 @@ public class HandTourch : MonoBehaviour
         ChangeColor color;
         TrapDetection spike1 ;
         laser lasercol;
+        ButtonLightControl button;
+        DoorController door;
         foreach ( Collider2D  obj in newObjects){
             if(!hitObjects1.Contains(obj)){
                 hitObjects1.Add(obj);
             }
             RaycastHit2D ray = Physics2D.Raycast(transform.position, (obj.transform.position - transform.position).normalized, 10f, targetLayer);
             if (ray.collider.gameObject == obj.gameObject)
-            {             
+            {        
+                Debug.Log("----------------");     
                 Debug.DrawLine(transform.position, obj.transform.position, Color.green);
                 spike1 = obj.GetComponent<TrapDetection>();
                 color = obj.GetComponent<ChangeColor>();
                 lasercol = obj.GetComponent<laser>();
+                button = obj.GetComponent<ButtonLightControl>();
+                door = obj.GetComponent<DoorController>();
                 if (color != null)
                 {
                     color.changetoBlue();
@@ -99,7 +104,14 @@ public class HandTourch : MonoBehaviour
                 if (lasercol != null)
                 {
                     lasercol.isLight(true);
-                }
+                }
+                if(button != null){
+                    Debug.Log("efe yanlış");
+                    button.ButtonAccess(true);
+                }
+                if(door != null){
+                    door.DoorPos(true);
+                }
             }
         }
         for(int i= hitObjects1.Count -1 ;i>=0 ; i--){
@@ -108,6 +120,7 @@ public class HandTourch : MonoBehaviour
                 color = obj.GetComponent<ChangeColor>();
                 spike1 = obj.GetComponent<TrapDetection>();
                 lasercol = obj.GetComponent<laser>();
+                door = GetComponent<DoorController>();
                 if (color!= null){
                     color.ChangeRed();
                 }
@@ -117,6 +130,9 @@ public class HandTourch : MonoBehaviour
                 if (lasercol != null)
                 {
                     lasercol.isLight(false);
+                }
+                if(door != null){
+                    door.DoorPos(false);
                 }
                 hitObjects1.Remove(obj);
             }
