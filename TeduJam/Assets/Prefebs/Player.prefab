@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 6073224968480734529}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -265,7 +265,7 @@ MonoBehaviour:
   reducebrightnessSpeed: 0.3
   targetLayer:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
   maxRadius: 4
 --- !u!61 &6073224968480734529
 BoxCollider2D:
