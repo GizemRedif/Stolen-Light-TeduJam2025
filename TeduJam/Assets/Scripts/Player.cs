@@ -15,6 +15,11 @@ public class Player : MonoBehaviour
     bool isrun = false;
     bool Alive = true;
     private Vector2 lastMoveDir;
+    AudioManager audioManager; // Audio Manager Scripti
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>(); // Audio Manager Objesinden scripti çekiyoruz
+    }
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -37,6 +42,7 @@ public class Player : MonoBehaviour
 
         if (moveX != 0) 
         {
+            audioManager.PlaySFX(audioManager.walk);
             anim.SetBool("RightWalk", true);
             anim.SetBool("UpWalk", false);
             anim.SetBool("DownWalk", false);
@@ -44,18 +50,21 @@ public class Player : MonoBehaviour
         }
         else if (moveY > 0) 
         {
+            audioManager.PlaySFX(audioManager.walk);
             anim.SetBool("UpWalk", true);
             anim.SetBool("RightWalk", false);
             anim.SetBool("DownWalk", false);
         }
         else if (moveY < 0) 
         {
+            audioManager.PlaySFX(audioManager.walk);
             anim.SetBool("DownWalk", true);
             anim.SetBool("RightWalk", false);
             anim.SetBool("UpWalk", false);
         }
         else 
         {
+            audioManager.StopSFX();
             anim.SetFloat("LastMoveX", lastMoveDir.x);
             anim.SetFloat("LastMoveY", lastMoveDir.y);
             anim.SetBool("RightWalk", false);

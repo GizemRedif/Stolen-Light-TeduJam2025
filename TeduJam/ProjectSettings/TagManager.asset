@@ -8,6 +8,7 @@ TagManager:
   - RedButton
   - BlueButton
   - GreenButton
+  - Audio
   layers:
   - Default
   - TransparentFX
