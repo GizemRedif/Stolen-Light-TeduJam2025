@@ -83,15 +83,17 @@ public class HandTourch : MonoBehaviour
             if(!hitObjects1.Contains(obj)){
                 hitObjects1.Add(obj);
             }
-            RaycastHit2D ray = Physics2D.Raycast(transform.position, (obj.transform.position - transform.position).normalized, 10f, targetLayer);
-            if(ray.collider != null){
-
-                
+            Vector2 start = light1.transform.position;
+            Vector2 target = obj.GetComponent<Collider2D>().bounds.center; // Collider'ın merkezini al
+            Vector2 direction = (target - start).normalized;
+            RaycastHit2D ray = Physics2D.Raycast(light1.transform.position, (target-start).normalized, 50f, targetLayer);
+            
+            if (ray.collider != null){
+                Debug.DrawLine(light1.transform.position, target, Color.green);
                 if (ray.collider.gameObject == obj.gameObject)
-
                 {        
                     Debug.Log("----------------");     
-                    Debug.DrawLine(transform.position, obj.transform.position, Color.green);
+                    
                     spike1 = obj.GetComponent<TrapDetection>();
                     color = obj.GetComponent<ChangeColor>();
                     lasercol = obj.GetComponent<laser>();
@@ -120,7 +122,7 @@ public class HandTourch : MonoBehaviour
                         door.DoorPos(true);
                     }
 
-            }
+                }
             }
 
         }

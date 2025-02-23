@@ -130,13 +130,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4740685670018759795, guid: ce065972427b7f9408313901c0bf9c0a, type: 3}
+      propertyPath: m_Intensity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4740685670018759795, guid: ce065972427b7f9408313901c0bf9c0a, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5169619355058852620, guid: ce065972427b7f9408313901c0bf9c0a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.36
+      value: -4.32
       objectReference: {fileID: 0}
     - target: {fileID: 5169619355058852620, guid: ce065972427b7f9408313901c0bf9c0a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.09
+      value: -2.95
       objectReference: {fileID: 0}
     - target: {fileID: 5169619355058852620, guid: ce065972427b7f9408313901c0bf9c0a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -169,6 +177,10 @@ PrefabInstance:
     - target: {fileID: 5169619355058852620, guid: ce065972427b7f9408313901c0bf9c0a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6578863541517506893, guid: ce065972427b7f9408313901c0bf9c0a, type: 3}
+      propertyPath: targetLayer.m_Bits
+      value: 63
       objectReference: {fileID: 0}
     - target: {fileID: 7882881327325352006, guid: ce065972427b7f9408313901c0bf9c0a, type: 3}
       propertyPath: m_Name
@@ -273,11 +285,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1465161101823808673, guid: 101cfe7790ea9074b85a266366ea01f7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.019722
+      value: -4.48
       objectReference: {fileID: 0}
     - target: {fileID: 1465161101823808673, guid: 101cfe7790ea9074b85a266366ea01f7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.28
+      value: 1.73
       objectReference: {fileID: 0}
     - target: {fileID: 1465161101823808673, guid: 101cfe7790ea9074b85a266366ea01f7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -315,6 +327,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedButton
       objectReference: {fileID: 0}
+    - target: {fileID: 1853432242318752964, guid: 101cfe7790ea9074b85a266366ea01f7, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4089919986510747381, guid: 101cfe7790ea9074b85a266366ea01f7, type: 3}
       propertyPath: doorController
       value: 
@@ -322,43 +338,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1853432242318752964, guid: 101cfe7790ea9074b85a266366ea01f7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 551625805}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 101cfe7790ea9074b85a266366ea01f7, type: 3}
---- !u!1 &551625800 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1853432242318752964, guid: 101cfe7790ea9074b85a266366ea01f7, type: 3}
-  m_PrefabInstance: {fileID: 536609947}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &551625805
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 551625800}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!1001 &942690665
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -771,6 +752,10 @@ PrefabInstance:
     - target: {fileID: 8137649561898667417, guid: 3eeef8f59236e7c49b22e676cdf17ed0, type: 3}
       propertyPath: m_Name
       value: Background
+      objectReference: {fileID: 0}
+    - target: {fileID: 8137649561898667417, guid: 3eeef8f59236e7c49b22e676cdf17ed0, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8137649561898667417, guid: 3eeef8f59236e7c49b22e676cdf17ed0, type: 3}
       propertyPath: m_IsActive
