@@ -9,11 +9,12 @@ public class AnimationTrigger : MonoBehaviour
     public float triggerDistance = 3f; // Mesafe kontrolü (karakter ne kadar yakın olmalı)
 
     private Transform hero; // Hero karakterinin transformu
+    private bool doorlock = false;
 
     void Start()
     {
         // Hero tagine sahip karakteri bul
-        GameObject heroObject = GameObject.FindGameObjectWithTag("Hero");
+        GameObject heroObject = GameObject.FindGameObjectWithTag("Player");
         if (heroObject != null)
         {
             hero = heroObject.transform;
@@ -29,8 +30,8 @@ public class AnimationTrigger : MonoBehaviour
         if (hero == null) return;
 
         float distance = Vector3.Distance(hero.position, transform.position); // Mesafeyi hesapla
-
-        if (IsAnimationPlaying(animationName) && distance <= triggerDistance && Input.GetKeyDown(KeyCode.F))
+        //&& distance <= triggerDistance
+        if (!doorlock  && Input.GetKeyDown(KeyCode.F))
         {
             SceneManager.LoadScene(nextSceneName); // Sahneyi değiştir
         }
@@ -39,5 +40,13 @@ public class AnimationTrigger : MonoBehaviour
     bool IsAnimationPlaying(string animName)
     {
         return animator.GetCurrentAnimatorStateInfo(0).IsName(animName);
+    }
+    public void istheredoor(){
+        doorlock = true;
+        Debug.Log("kapı kilitli");
+    }
+    public void isntThereDoor(){
+        doorlock = false;
+        Debug.Log("kapı açık");
     }
 }

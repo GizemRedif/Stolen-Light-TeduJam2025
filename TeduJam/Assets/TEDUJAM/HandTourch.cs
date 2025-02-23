@@ -121,7 +121,6 @@ public class HandTourch : MonoBehaviour
                     if(door != null){
                         door.DoorPos(true);
                     }
-
                 }
             }
 
@@ -132,6 +131,7 @@ public class HandTourch : MonoBehaviour
                 color = obj.GetComponent<ChangeColor>();
                 spike1 = obj.GetComponent<TrapDetection>();
                 lasercol = obj.GetComponent<laser>();
+                button = obj.GetComponent<ButtonLightControl>();
                 door = GetComponent<DoorController>();
                 if (color!= null){
                     color.ChangeRed();
@@ -142,6 +142,10 @@ public class HandTourch : MonoBehaviour
                 if (lasercol != null)
                 {
                     lasercol.isLight(false);
+                }
+                if(button != null){
+                    Debug.Log("efe yanlış");
+                    button.ButtonAccess(false);
                 }
                 if(door != null){
                     door.DoorPos(false);

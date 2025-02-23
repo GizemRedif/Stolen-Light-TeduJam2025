@@ -8,31 +8,48 @@ public class ButtonLightControl : MonoBehaviour
    
     public DoorController doorController;
     public string buttonType = "Button";
+    private int buttoncounter = 0;
+    private bool islight = false;
 
-    public void ButtonAccess(bool access)
+    public void ButtonAccess(bool islight)
     {
-        Debug.Log("girdi");
-        if(access){
+        this.islight = islight;
+    }
+    void Update()
+    {
+        if(islight){
             ButtonResponse();
         }
         else{
-
+            if(gameObject.CompareTag("BlueButton"))
+            {
+                doorController.isopenDoor(true);
+            }
         }
     }
     private void ButtonResponse() //Buton rengine göre kapının açıldığı durumlar
     {
-         if (gameObject.CompareTag("RedButton") && Input.GetKey(KeyCode.E))
+         if (gameObject.CompareTag("RedButton") )
         {
+            if(Input.GetKeyDown(KeyCode.E)){
+                doorController.isopenDoor(true); 
+                buttoncounter ++;
+                Debug.Log("Counter:"+buttoncounter);
+            }
+            if(buttoncounter == 2 ){
+                buttoncounter = 0;
+                doorController.isopenDoor(false);
+                Debug.Log("Counter:"+buttoncounter);
+            }
             Debug.Log("Tuşa basıldı");
-            doorController.OpenDoor(); 
         }
         else if(gameObject.CompareTag("BlueButton"))
         {
-            doorController.CloseDoor();
+            doorController.isopenDoor(false);
         }
         else if(gameObject.CompareTag("GreenButton"))
         {
-            doorController.OpenDoor();
+            doorController.isopenDoor(true);
             StartCoroutine(CloseDoorAfterTime(5f));
         }
 
@@ -40,6 +57,6 @@ public class ButtonLightControl : MonoBehaviour
      private IEnumerator CloseDoorAfterTime(float time) //Süreyle kapının açık kalması
     {
         yield return new WaitForSeconds(time);
-        doorController.CloseDoor();
+        doorController.isopenDoor(false);
     }
 }

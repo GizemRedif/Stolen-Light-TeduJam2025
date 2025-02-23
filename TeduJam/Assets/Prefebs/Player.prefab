@@ -265,7 +265,7 @@ MonoBehaviour:
   reducebrightnessSpeed: 0.3
   targetLayer:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 63
   maxRadius: 4
 --- !u!61 &6073224968480734529
 BoxCollider2D:
