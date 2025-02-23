@@ -39,5 +39,8 @@ public class healthBar : MonoBehaviour
     {
         Debug.Log("Player Health: " + (currentHealth / maxHealth)*100); // Sağlığını kontrol amaçlı
         healthImage.fillAmount = currentHealth / maxHealth; 
+        if(healthImage.fillAmount != backGrounImage.fillAmount){
+            backGrounImage.fillAmount = Mathf.Lerp(backGrounImage.fillAmount,healthImage.fillAmount,5f*Time.deltaTime);
+        }
     }
 }
