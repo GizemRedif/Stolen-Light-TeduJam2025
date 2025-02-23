@@ -18,14 +18,15 @@ public class ButtonLightControl : MonoBehaviour
     void Update()
     {
         if(islight){
+            Debug.Log("ışık var");
             Debug.Log("Tuşa basıldı");
             ButtonResponse();
         }
         else{
-            Debug.Log("gfkjhgfdkhgfk");
+            Debug.Log("ışık yyok");
             if(gameObject.CompareTag("BlueButton"))
             {
-                Debug.Log("gfkjhgfdkhgfk");
+                
                 doorController.isopenDoor(true);
             }
         }

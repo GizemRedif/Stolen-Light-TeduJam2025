@@ -10,13 +10,6 @@ public class BlinkLight : MonoBehaviour
     [SerializeField] LayerMask targetLayer;
     private ArrayList hitObjects1 = new ArrayList();
     private float timer = 0f;
-    private Collider2D[] currentObjects;
-    private ArrayList newObjects;
-    ChangeColor color;
-    TrapDetection spike1 ;
-    laser lasercol;
-    ButtonLightControl button;
-    DoorController door;
 
     void Update()
     {
@@ -24,52 +17,27 @@ public class BlinkLight : MonoBehaviour
 
         if (timer >= interval)
         {
-            Area();
-            for(int i= hitObjects1.Count -1 ;i>=0 ; i--){
-            Collider2D obj = (Collider2D)hitObjects1[i];
-            if(!newObjects.Contains(obj)){
-                color = obj.GetComponent<ChangeColor>();
-                spike1 = obj.GetComponent<TrapDetection>();
-                lasercol = obj.GetComponent<laser>();
-                button = obj.GetComponent<ButtonLightControl>();
-                door = GetComponent<DoorController>();
-                if (color!= null){
-                    color.ChangeRed();
-                }
-                if(spike1 != null){
-                    spike1.setLight(false);
-                }
-                if (lasercol != null)
-                {
-                    lasercol.isLight(false);
-                }
-                if(button != null){
-                    Debug.Log("efe yanlış");
-                    button.ButtonAccess(false);
-                }
-                if(door != null){
-                    door.DoorPos(false);
-                }
-                hitObjects1.Remove(obj);
-            }
-        }
             myLight.enabled = !myLight.enabled; // Işığı aç/kapat
             timer = 0f; // Sayaç sıfırla
         }
     }
         public void Area()
     {
-        currentObjects = Physics2D.OverlapCircleAll(transform.position, myLight.pointLightOuterRadius, targetLayer);
-        newObjects = new ArrayList(currentObjects);
-
+        Collider2D[] currentObjects = Physics2D.OverlapCircleAll(transform.position, myLight.pointLightOuterRadius, targetLayer);
+        ArrayList newObjects = new ArrayList(currentObjects);
+        ChangeColor color;
+        TrapDetection spike1 ;
+        laser lasercol;
+        ButtonLightControl button;
+        DoorController door;
         foreach ( Collider2D  obj in newObjects){
             if(!hitObjects1.Contains(obj)){
                 hitObjects1.Add(obj);
             }
             Vector2 start = myLight.transform.position;
-            Vector2 target = obj.GetComponent<Collider2D>().bounds.center; 
+            Vector2 target = obj.GetComponent<Collider2D>().bounds.center; // Collider'ın merkezini al
             Vector2 direction = (target - start).normalized;
-            RaycastHit2D ray = Physics2D.Raycast(myLight.transform.position, (target-start).normalized, 100f, targetLayer);
+            RaycastHit2D ray = Physics2D.Raycast(myLight.transform.position, (target-start).normalized, 50f, targetLayer);
             
             if (ray.collider != null){
                 Debug.DrawLine(myLight.transform.position, target, Color.green);
@@ -89,8 +57,6 @@ public class BlinkLight : MonoBehaviour
                     }
                     if (spike1 != null)
                     {
-                        Debug.Log("efe yanlış");
-
                         spike1.setLight(true);
                     }
                     if (lasercol != null)
@@ -98,7 +64,7 @@ public class BlinkLight : MonoBehaviour
                         lasercol.isLight(true);
                     }
                     if(button != null){
-                        Debug.Log("efe yanlış");
+                        Debug.Log("button tespit edildi");
                         button.ButtonAccess(true);
                     }
                     if(door != null){
@@ -108,8 +74,37 @@ public class BlinkLight : MonoBehaviour
             }
 
         }
+        for(int i= hitObjects1.Count -1 ;i>=0 ; i--){
+            Collider2D obj = (Collider2D)hitObjects1[i];
+            if(!newObjects.Contains(obj)){
+                color = obj.GetComponent<ChangeColor>();
+                spike1 = obj.GetComponent<TrapDetection>();
+                lasercol = obj.GetComponent<laser>();
+                button = obj.GetComponent<ButtonLightControl>();
+                door = GetComponent<DoorController>();
+                if (color!= null){
+                    color.ChangeRed();
+                }
+                if(spike1 != null){
+                    spike1.setLight(false);
+                }
+                if (lasercol != null)
+                {
+                    lasercol.isLight(false);
+                }
+                if(button != null){
+                    Debug.Log("button tespit edildi");
+                    button.ButtonAccess(false);
+                }
+                if(door != null){
+                    door.DoorPos(false);
+                }
+                hitObjects1.Remove(obj);
+            }
+        }
+    }
         
-    } 
+    
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

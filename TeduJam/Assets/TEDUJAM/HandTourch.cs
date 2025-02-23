@@ -142,7 +142,7 @@ public class HandTourch : MonoBehaviour
                     lasercol.isLight(false);
                 }
                 if(button != null){
-                    Debug.Log("button tespit edildi");
+                    Debug.Log("buttonfdsfdsf tespit edildi");
                     button.ButtonAccess(false);
                 }
                 if(door != null){
