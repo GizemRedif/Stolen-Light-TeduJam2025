@@ -6,6 +6,10 @@ TagManager:
   tags:
   - trap
   - RedButton
+  - BlueButton
+  - GreenButton
+  - Pushable
+origin/gizem2-branch
   layers:
   - Default
   - TransparentFX
