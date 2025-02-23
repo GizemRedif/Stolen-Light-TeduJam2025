@@ -16,6 +16,7 @@ public class DoorController : MonoBehaviour
     void Update()
     {
         if(situation){
+            Debug.Log("Kapı tespiti");
             if(ButtonSitu){
                 anim.SetBool("isOpen",ButtonSitu);
                 anim.SetBool("isReady",transformtime);
