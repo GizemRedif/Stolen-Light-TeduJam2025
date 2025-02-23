@@ -15,7 +15,7 @@ public class Health : MonoBehaviour
         
     }
 
-    public void takeDamage(float damage){
+    public void TakeDamage(float damage){
         if(health-damage > 0){
             health -= damage;
         }

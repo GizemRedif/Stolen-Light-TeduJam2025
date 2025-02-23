@@ -8,7 +8,7 @@ public class spike : MonoBehaviour
 {
     public float damage = 1;
     private bool isPlayer;
-    private Character script;
+    private Health script;
     private float timer;
     private float timer2;
     private bool damaged  = false;
@@ -31,6 +31,7 @@ public class spike : MonoBehaviour
         {
             Debug.Log("���k yokken diken a��k");
             timer2 += Time.deltaTime;
+            anim.SetBool("isIdle", false);
             if (isPlayer && script != null && damaged == false)
             {
                 damaged = true;
@@ -49,7 +50,7 @@ public class spike : MonoBehaviour
         if (collider.CompareTag("Player"))
         {
             isPlayer = true;
-            script = collider.GetComponent<Character>();
+            script = collider.GetComponent<Health>();
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -69,6 +70,7 @@ public class spike : MonoBehaviour
             
             if (timer <= 0.5f)
             {
+                anim.SetBool("isIdle", true);
                 GetComponent<Collider2D>().enabled = false;
                 damaged = false;
 
@@ -87,6 +89,7 @@ public class spike : MonoBehaviour
             else if(timer >= 1.5f)
             {
                 GetComponent<Collider2D>().enabled = false;
+                anim.SetBool("isIdle",true);
                 if(timer > 2){
                     timer = 0;
                 }
@@ -100,5 +103,11 @@ public class spike : MonoBehaviour
         
     }
     public void setSpike(bool noLight){this.noLight = noLight;}
-    public void takeDamage(float damage){script.TakeDamage(damage);}
+    public void takeDamage(float damage)
+    {
+        if (script != null)
+        {
+            script.TakeDamage(damage);
+        }
+    }
 }
