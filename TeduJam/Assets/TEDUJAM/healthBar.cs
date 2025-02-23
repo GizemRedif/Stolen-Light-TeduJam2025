@@ -10,12 +10,23 @@ public class healthBar : MonoBehaviour
 
    public float maxHealth=100f;
    public float currentHealth;
+    public GameObject player;
+    
+    
 
     void Start()
     {
         currentHealth=maxHealth;
+       
+        
+    }
+    void Update()
+    {
+        
+        currentHealth = player.GetComponent<Health>().GetHealth();
         UpdateHealthBar(); //Oyun başladığında sağlık barı güncelleniyor
     }
+    
 
     public void TakeDamage( float damage)
     {
