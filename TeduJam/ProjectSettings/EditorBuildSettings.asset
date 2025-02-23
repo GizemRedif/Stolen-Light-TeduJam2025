@@ -38,4 +38,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Episodes/Episode 5.unity
     guid: 80e5b7ca7b3a7454280c9bd7afb39f3f
+  - enabled: 1
+    path: Assets/Scenes/Episodes/Episode 6.unity
+    guid: dc367a4e1e754054bab127439df986cc
+  - enabled: 1
+    path: Assets/Scenes/Episodes/Episode 7.unity
+    guid: cc57040d2e2acd040a5ff4a868fbcadc
+  - enabled: 1
+    path: Assets/Scenes/Episodes/Episode 8.unity
+    guid: d1d7eaa115b1ba64982e7af64070ec51
+  - enabled: 1
+    path: Assets/Scenes/Episodes/Episode 9.unity
+    guid: 466bd652167ff5c47b6de16e65eb88d6
+  - enabled: 1
+    path: Assets/Scenes/Episodes/Episode 10.unity
+    guid: bd8ac5f2ec51dca4c9b1de59b48ae7bb
   m_configObjects: {}
