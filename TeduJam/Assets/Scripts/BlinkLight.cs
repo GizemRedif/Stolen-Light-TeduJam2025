@@ -13,10 +13,12 @@ public class BlinkLight : MonoBehaviour
 
     void Update()
     {
+        
         timer += Time.deltaTime;
 
         if (timer >= interval)
         {
+            Area();
             myLight.enabled = !myLight.enabled; // Işığı aç/kapat
             timer = 0f; // Sayaç sıfırla
         }
